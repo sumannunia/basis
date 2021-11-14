@@ -47,6 +47,7 @@ const SignUp = () => {
                         //     token: detail.results.token
                         // }
                         // login(obj);
+                        alert('User already registered. Please login.');
                         navigate('/login');
                         return;
                     }
