@@ -4,12 +4,13 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <NavBar /> */}
+        <NavBar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
