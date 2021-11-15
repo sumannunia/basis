@@ -60,6 +60,7 @@ a.nav-link.login-btn-anchor {
   justify-content: center;
   font-weight: 600;
   color: #fff !important;
+  max-width: 120px;
 }
 .profile-title::after {
   position: absolute;

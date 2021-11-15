@@ -1,7 +1,7 @@
-
+const BASE_URL = 'https://hiring.getbasis.co/candidate'
 
 export const getAll = async (url) => {
-    return await fetch(`${url}`)
+    return await fetch(`${BASE_URL}${url}`)
         .then((response) => {
             return response.json();
         });
@@ -9,7 +9,7 @@ export const getAll = async (url) => {
 };
 export const logout = async (url, userState) => {
     
-    return await fetch(`${url}`, {
+    return await fetch(`${BASE_URL}${url}`, {
         method: 'DELETE',
         headers: {
             "Authorization": `Bearer ${userState.userState.response.results.user._id},${userState.userState.response.results.user.token}`
@@ -22,7 +22,7 @@ export const logout = async (url, userState) => {
 };
 
 export const post = async (url, body) => {
-    return await fetch(url, {
+    return await fetch(`${BASE_URL}${url}`, {
         headers: {
             'Content-Type': 'application/json'
         },
@@ -34,7 +34,7 @@ export const post = async (url, body) => {
         });
 };
 export const put = async (url, body) => {
-    return await fetch(url, {
+    return await fetch(`${BASE_URL}${url}`, {
         headers: {
             'Content-Type': 'application/json'
         },

@@ -13,7 +13,7 @@ const NavBar = () => {
 
     const logOut = () => {
         // logout(`https://hiring.getbasis.co/candidate/users/logout/${userState.userState.token}`, userState)
-        logout(`https://hiring.getbasis.co/candidate/users/logout/${userState.userState.response.results.user._id}`, userState)
+        logout(`/users/logout/${userState.userState.response.results.user._id}`, userState)
             .then(response => {
                 console.log(response);
                 if (response.success) {

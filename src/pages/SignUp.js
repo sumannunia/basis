@@ -37,7 +37,7 @@ const SignUp = (props) => {
     
     const onsubmit = (data) => {
         setIsloading(true);
-        post(`https://hiring.getbasis.co/candidate/users/email`, data)
+        post(`/users/email`, data)
             .then((detail) => {
                 console.log(detail);
                 setIsloading(false);
@@ -71,7 +71,7 @@ const SignUp = (props) => {
         if (resendCount !== 3) {
             if (resendCount + 1 !== 4) {
                 
-                put('https://hiring.getbasis.co/candidate/users/token/resendtoken', obj)
+                put('/users/token/resendtoken', obj)
                     .then((response) => {
                         console.log(response);
                     });
@@ -86,7 +86,7 @@ const SignUp = (props) => {
         };
     };
     // const login = (obj) => {
-    //     put(`https://hiring.getbasis.co/candidate/users/email/verify`, obj)
+    //     put(`/users/email/verify`, obj)
     //         .then((response) => {
     //             console.log(response);
                
@@ -99,7 +99,7 @@ const SignUp = (props) => {
             email: details.email,
             token: `${details.userDetails.verifyEmailResponse.token}`
         };
-        put(`https://hiring.getbasis.co/candidate/users/email/verify`, obj)
+        put(`/users/email/verify`, obj)
             .then((response) => {
                 console.log(response);
                 if (response.success === true) {
@@ -125,7 +125,7 @@ const SignUp = (props) => {
             "source": "WEB_APP"
         };
         console.log(obj)
-        post(`https://hiring.getbasis.co/candidate/users`, obj)
+        post(`/users`, obj)
             .then((response) => {
                 console.log(response);
                 if (response.success) {
@@ -149,7 +149,7 @@ const SignUp = (props) => {
         if (e.target.value.trim().length < 1) {
             setReferralKeyValidation(null);
         } else {
-            getAll(`https://hiring.getbasis.co/candidate/users/referral/${e.target.value.trim().toUpperCase()}`)
+            getAll(`/users/referral/${e.target.value.trim().toUpperCase()}`)
                 .then(response => {
                     console.log(response);
                     if (!response.success) {
