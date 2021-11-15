@@ -51,3 +51,47 @@ input,
 .bg-light {
   box-shadow: 0 0 6px #d4d4d4;
 }
+a.nav-link.login-btn-anchor {
+  background: crimson;
+  border-radius: 5px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #fff !important;
+}
+.profile-title::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 40%;
+  right: 0;
+  /* top: 0; */
+  background: crimson;
+  bottom: -3px;
+}
+.profile-title {
+  width: max-content;
+  margin: auto;
+  position: relative;
+}
+.container-for-not-found {
+  max-width: max-content;
+  margin: auto;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h4.not-found {
+  font-size: 54px;
+  position: relative;
+  display: flex;
+  column-gap: 2.5rem;
+}
+span.center-char {
+  position: absolute;
+  transform: rotate(45deg);
+  left: 38px;
+}

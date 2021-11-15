@@ -7,12 +7,14 @@ const Profile = () => {
     let navigate = useNavigate();
     useEffect(() => {
         if (!userState.userState) {
-            navigate('/signup');
+            navigate('/signup?return-url=/profile');
         }
     }, [userState])
     return (
         <>
-            <div className="container">
+            {userState.userState && <div className="container">
+                <h3 className="h3 mt-5 text-center profile-title">User Profile</h3>
+
                 <div className="profile-info-block">
                     <div className="col-12">
                         <div className="col-wrapper mb-3">
@@ -29,7 +31,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
         </>
     );
 };

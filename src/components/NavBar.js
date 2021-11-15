@@ -3,19 +3,23 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserState } from '../actions/index';
 import { logout } from '../services';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavBar = () => {
     const userState = useSelector((state) => state);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const logOut = () => {
-        logout(`https://hiring.getbasis.co/candidate/users/logout/${userState.userState.token}`)
+        // logout(`https://hiring.getbasis.co/candidate/users/logout/${userState.userState.token}`, userState)
+        logout(`https://hiring.getbasis.co/candidate/users/logout/${userState.userState.response.results.user._id}`, userState)
             .then(response => {
                 console.log(response);
                 if (response.success) {
                     localStorage.removeItem('user');
                     dispatch(setUserState());
+                    navigate('/signup')
                 } else {
                     alert(response.message);
                 }

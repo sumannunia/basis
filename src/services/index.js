@@ -1,3 +1,5 @@
+
+
 export const getAll = async (url) => {
     return await fetch(`${url}`)
         .then((response) => {
@@ -5,9 +7,13 @@ export const getAll = async (url) => {
         });
     
 };
-export const logout = async (url) => {
+export const logout = async (url, userState) => {
+    
     return await fetch(`${url}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            "Authorization": `Bearer ${userState.userState.response.results.user._id},${userState.userState.response.results.user.token}`
+        }
     })
         .then((response) => {
             return response.json();

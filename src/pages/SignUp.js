@@ -2,12 +2,15 @@ import React, {useEffect, useRef, useState} from 'react';
 import { useForm } from 'react-hook-form';
 import "../styles/login.css";
 import { post, put, getAll } from '../services';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserState } from '../actions';
 
-const SignUp = () => {
+const SignUp = (props) => {
     let navigate = useNavigate();
+    const params = useLocation();
+    const {search} = params
+    
     let dispatch = useDispatch();
     const userState = useSelector((state) => state);
     console.log(userState);
@@ -128,7 +131,13 @@ const SignUp = () => {
                 if (response.success) {
                     localStorage.setItem('user', JSON.stringify({token: details.userDetails.verifyEmailResponse.token,response}));
                     dispatch(setUserState());
-                    navigate('/profile');
+                    if (search) {
+                        let returnUrl = search.split('=')[1];
+                        navigate(returnUrl);
+                    } else {
+                        
+                        navigate('/profile');
+                    }
                 } else {
                     alert(response.message);
                 }

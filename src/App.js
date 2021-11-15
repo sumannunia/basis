@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import NavBar from "./components/NavBar";
+import NoMatch from "./pages/NoMatch";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
          
-
+          <Route path="*" element={<NoMatch />} />
+            
             
           
           

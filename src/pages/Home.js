@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <>
             <div className="container">
-                <h3 className="h3 mt-5 text-center">Basis Homepage goes here.</h3>
+                <h3 className="h3 mt-5 text-center profile-title">Basis Homepage goes here.</h3>
             </div>
         </>
     );
